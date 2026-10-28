@@ -1,1 +1,1 @@
-console.log('Hello from Node.js!')
+console.log('Code from Node.js!')
