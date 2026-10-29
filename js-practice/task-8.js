@@ -1,6 +1,6 @@
-let users = require('./users');
+const users = require('./users');
 
-let totals = users.map(user => ({
+const totals = users.map(user => ({
     name: user.name,
     totalOrders: user.orders.reduce((sum, order) => sum + order, 0)
 }));

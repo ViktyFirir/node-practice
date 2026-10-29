@@ -1,6 +1,7 @@
-let users = require('./users');
+const users = require('./users');
+
 function getUserById(id) {
-    let findUser = users.find(user => user.id === id);
+    const findUser = users.find(user => user.id === id);
     if (!findUser) {
         console.log(`пользователь с id ${id} не найден`);
         return null;

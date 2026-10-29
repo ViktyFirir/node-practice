@@ -1,10 +1,10 @@
-let users = require('./users');
+const users = require('./users');
 
-let userCity = users.reduce((citys, user) => {
-    if (!citys[user.city]) {
-        citys[user.city] = [];
+const userCity = users.reduce((cities, user) => {
+    if (!cities[user.city]) {
+        cities[user.city] = [];
     }
-    citys[user.city].push(user.name);
-    return citys
-},{})
+    cities[user.city].push(user);
+    return cities;
+}, {});
 console.log(userCity);

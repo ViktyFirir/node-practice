@@ -1,6 +1,7 @@
-let users = require('./users');
+const users = require('./users');
 
-users.forEach(user => {
-  let totalOrders = user.orders.reduce((sum, order) => sum + order, 0);
-  console.log(`User: ${user.name}, Total Orders: ${totalOrders}`);
+const result = users.map(user => {
+    const totalOrders = user.orders.reduce((sum, order) => sum + order, 0);
+    return `User: ${user.name}, Total Orders: ${totalOrders}`;
 });
+console.log(result);
