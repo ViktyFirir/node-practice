@@ -21,5 +21,8 @@
   "homepage": "https://github.com/ViktyFirir/node-practice#readme",
   "dependencies": {
     "dayjs": "^1.11.23"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
   }
 }
