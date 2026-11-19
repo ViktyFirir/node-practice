@@ -1,21 +1,27 @@
-import type { ApiUser } from './types';
+import { isApiUser } from './utils';
 
 async function fetchUsersInCity(): Promise<Record<string, number>> {
-  const response = await fetch('https://typicode.com');
-  
+  const response = await fetch('https://jsonplaceholder.typicode.com/users');
+
   if (!response.ok) {
     throw new Error(`Ошибка HTTP: ${response.status}`);
   }
 
-  const users: ApiUser[] = await response.json();
+  const data: unknown = await response.json();
+
+  if (!Array.isArray(data) || !data.every(isApiUser)) {
+    throw new Error('Ответ API не соответствует ожидаемому формату');
+  }
+
+  const users = data;
 
   const countByCity = users.reduce<Record<string, number>>((result, user) => {
     const city = user.address.city;
-    
+
     if (!result[city]) {
       result[city] = 0;
     }
-    
+
     result[city]++;
     return result;
   }, {});
